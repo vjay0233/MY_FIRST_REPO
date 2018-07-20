@@ -1,0 +1,3 @@
+This is an e-commerce application which has diferent functionalities like displaying navigation bar,products page,products details page,
+login,register functionalities,placing order,cart page etc.we use spring frame work and maven as a build tool.for authentication we use 
+Spring security.For header and footer for every page we use spring tiles.we use mysql database to store data.we can add products to cart page like real time e-commerce application.

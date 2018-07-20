@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xmlns:security="http://www.springframework.org/schema/security"  
+       xmlns:p="http://www.springframework.org/schema/p"   
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                           http://www.springframework.org/schema/beans/spring-beans.xsd  
+                           http://www.springframework.org/schema/security  
+                           http://www.springframework.org/schema/security/spring-security-3.1.xsd">  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+	<bean id="ds" class="org.apache.tomcat.dbcp.dbcp.BasicDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/vijay" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+
+	</bean>
+
+	<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg ref="ds" />
+	</bean>
+
+	<bean id="dao" class="com.yepme.customer.dao.CustomerDAOImpl">
+		<constructor-arg ref="template" />
+	</bean>
+
+	<bean id="service" class="com.yepme.customer.service.CustomerServiceImpl">
+
+		<constructor-arg ref="dao" />
+
+	</bean>
+        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   <security:http auto-config="true" >  
+  <security:intercept-url pattern="/index" access="ROLE_USER" />  
+  <security:form-login login-page="/login.html" default-target-url="/index.html"  
+   authentication-failure-url="/fail2login.html" />  
+  <security:logout logout-success-url="/logout.html" />  
+ </security:http>  
+  
+    <security:authentication-manager>  
+   <security:authentication-provider>  
+    
+      
+     <security:jdbc-user-service data-source-ref="ds"    
+      users-by-username-query="select Email,Password,Active from Customer where Email=?"    
+           authorities-by-username-query="select Email,Role from Customer where Email =? " />   
+   
+   </security:authentication-provider>  
+ </security:authentication-manager>  
+  
+</beans>  

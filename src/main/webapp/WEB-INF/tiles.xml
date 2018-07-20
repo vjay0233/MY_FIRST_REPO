@@ -1,0 +1,85 @@
+
+
+
+
+<!-- <!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">   -->
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+<definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">
+<put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+<put-attribute name="navigation_bar" value="/WEB-INF/jsp/navigationbar.jsp"/>
+<put-attribute name="body" value=" "/>
+<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+
+</definition>
+
+<definition name="body" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/body.jsp"/>
+</definition>
+
+
+  <definition name="Error" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Error.jsp"/>
+</definition>
+
+
+<definition name="Enter" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Enter.jsp"/>
+</definition>
+
+ <definition name="failed" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/failed.jsp"/>
+</definition>
+ 
+
+<definition name="Register" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Register.jsp"/>
+</definition>
+
+<definition name="Login" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Login.jsp"/>
+</definition>
+
+<definition name="success" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/success.jsp"/>
+</definition>
+
+<definition name="Profile" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Profile.jsp"/>
+</definition>
+
+
+<!-- <definition name="Error" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Error.jsp"/>
+</definition>
+
+<definition name="Logout" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Logout.jsp"/>
+</definition>
+ --> 
+<definition name="Products" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Products.jsp"/>
+</definition>
+
+
+<definition name="SingleProduct" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/SingleProduct.jsp"/>
+</definition>
+
+
+ <definition name="addToCart" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/addToCart.jsp"/>
+</definition>
+ 
+
+<definition name="Adress" extends="base.definition">
+<put-attribute name="body" value="/WEB-INF/jsp/Adress.jsp"/>
+</definition>
+
+
+</tiles-definitions>
